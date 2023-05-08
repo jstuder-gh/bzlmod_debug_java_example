@@ -1,0 +1,30 @@
+module(
+    name = "bzlmod_debug_java_example",
+    version = "0.0.1",
+    compatibility_level = 0,
+)
+
+bazel_dep(name = "bazel_skylib", version = "1.4.1")
+
+bazel_dep(name = "rules_java", version = "5.5.0")
+bazel_dep(name = "rules_jvm_external", version = "5.2")
+
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+
+maven.artifact(
+    artifact = "guava",
+    group = "com.google.guava",
+    version = "31.1-jre",
+)
+
+maven.install(
+    name = "maven",
+    artifacts = [],
+    lock_file = "//:maven_install.json",
+)
+
+use_repo(
+    maven,
+    "maven",
+    "unpinned_maven",
+)

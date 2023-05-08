@@ -1,0 +1,12 @@
+load("@rules_java//java:defs.bzl", "java_binary")
+load("@rules_jvm_external//:defs.bzl", "artifact")
+
+java_binary(
+    name = "Main",
+    srcs = [
+        "java/com/github/jstuder_gh/examples/bzlmod/Main.java",
+    ],
+    deps = [
+        "@maven//:com_google_guava_guava",
+    ],
+)

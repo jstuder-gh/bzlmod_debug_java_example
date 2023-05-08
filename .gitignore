@@ -1,0 +1,4 @@
+bazel-bin
+bazel-bzlmod_debug_java_example
+bazel-out
+bazel-testlogs
